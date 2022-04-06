@@ -1,0 +1,159 @@
+\documentclass{cheatsheet}
+\usepackage{blindtext}
+
+
+\usepackage{listings}
+\usepackage{bm}
+
+\doctitle{Python}
+\author{Leonardo Saurwein - lsaurwein@student.ethz.ch}
+\setColor{darkgray}
+
+
+\begin{document}
+\section{General}
+    \subsection{Operators}
+    \textbf{x+y} b: sum of x and y \hspace{1cm} a \textbf{-} b: minus \hspace{1cm} a \textbf{*} b: times \\
+    a \textbf{**} n: a to the power of 7 \\
+    a \textbf{/} b: division, return a float \\
+    a \textbf{//} b: floor division discards the fractional part \\
+    a \textbf{\%} b: the operator \% returns the remainder of the division \\
+    \textbf{\_} :console, the last printed expression is assigned to the variable \_ \\
+    \textbf{abs(x)}: absolute value or magnitude of x \\
+    \textbf{int(x)}: x converted to integer \\
+    \textbf{float(x)}: x converted to floating point \\
+    \textbf{complex(re, im)}: complex number, re: real, im: imaginary \\
+    \textbf{c.conjugate()}: conjugate of the complex number c
+    bm
+    \subsection{Bitwise Operations}
+    TODO
+
+    \subsection{Boolean operators}
+    \textbf{x or y}: if x is false, then y, else x \\
+    \textbf{x and y}: if x is false, then x, else y \\
+    \textbf{not x}: if x is false, then True, else False \\
+    \subsection{Comparisons}
+    \boldsymbol{$<$}: strictly less than \\
+    \textbf{$<=$}: less than or equal \\
+    \textbf{$>$}: strictly greater than \\
+    \textbf{$>=$}: greater than or equal \\
+    \textbf{$==$}: equal \\
+    \textbf{$!=$}: not equal \\
+    \textbf{is}: object identity \\
+    \textbf{is not}: negated object identity
+
+    \subsection{Strings}
+    \textbf{s = 'a' or "a"}: single quotes strings \\
+    \textbf{'doesn$\backslash$'t'}: use $\backslash$' to escape the single quote \\
+    \textbf{"doesn't"}: or use double quotes instead \\
+    \textbf{$\backslash$n}: go to the next line \hspace{0.3cm} \textbf{$\backslash$t}: tab space \hspace{0.3cm} \textbf{$\backslash$r}: carriage return \\
+    \textbf{r"..."}: raw strings \\
+    \textbf{"""..."""}: string literals on multiple lines, use $\backslash$ to prevent $\backslash$n \\
+    \textbf{+} and \textbf{*}: sum or multiply strings \\
+    \textbf{a[n]}: to access n index of a (start from 0) \\
+    \textbf{a[-k]}: to access n-k index of a (start from n+1) \\
+    \textbf{a[i:j]}: range from i to j, leave black to get first or last \\
+    \textbf{strings are immutable (don't support index assignment)} \\
+    Methods (all return a copy): \\
+    \textbf{len(a)}: return the length of the string \\
+    \textbf{s.capitalize()}: first character capitalized and the rest lowercased \\
+    \textbf{s.casefold()}: casefolded copy of the string.
+    \textbf{s.center(w, c)}: centered in a string of length w, fill with c \\
+    \textbf{s.count(i)}: count ammount of substring i in str \\
+    \textbf{s.encode()}: encode the string, default: utf-8 \\
+    \textbf{s.endswith(s)}: true if s end with s, false otherwise \\
+    \textbf{s.startswith(s)}: true if s start with s, false otherwis \\
+    \textbf{s.expandtabs(n)}: expand the tab ($\backslash$t) \\
+    \textbf{s.find(i)}: return smallest index of i in s, -1 if not found \\
+    \textbf{s.index(i)}: like find but raise an error \\
+    \textbf{s.isalnum()}: true if alphanumeric \\
+    \textbf{s.isalpha()}: true if all alphabetic \\
+    \textbf{s.isascii()}: true if ascii \\
+    \textbf{s.isdecimal()}: true if all decimal \\
+    \textbf{s.isdigit()}: true if all digit \\
+    \textbf{s.islower()}: true if all lowercase \\
+    \textbf{s.lower()}: all cased characters converted to lowercase \\
+    \textbf{s.isupper()}: true if all uppercase \\
+    \textbf{s.upper()}: all cased characters converted to uppercase \\
+    \textbf{s.isnumeric()}: true if all numeric character \\
+    \textbf{s.isspace()}: true if only whitespace characters \\
+    \textbf{s.istitle()}: true if title first upper rest lower \\
+    \textbf{s.title()}: convert s to a title \\
+    \textbf{s.strip([c])}: strip c from left and right, black by deafult \\
+    \textbf{s.lstrip([c])}: --> remove c from left, blank by default \\
+    \textbf{s.rstrip([c])}: <-- remove c from right, blank by deafult \\
+    \textbf{s.removeprefix(i)}: remove prefix i\\
+    \textbf{s.removesuffix(i)}: remove sufflix i \\
+    \textbf{s.replace(old, new, count)}: replace all old with new \\
+    \textbf{s.split(sep)}: split on sep return a list \\
+    \textbf{s.splitlines()}: split on \textbf{$\backslash$n} return a list \\
+    \textbf{s.swapcase()}: convert upper to lower and viceversa
+
+    \subsection{Tuples and Sets}
+    TODO
+
+    \subsection{Lists}
+    \textbf{l = [a,b,c]}: list, support index like strings \\
+    \textbf{l[:]}: return a copy of l \\
+    \textbf{l[n] = k}: set n index to k, work also with a slice (l[i:j]) \\
+    \textbf{[i for i in a]}: concise way to create lists \\
+    \textbf{del l[n]}: delete n index, work also with interval \\
+    Data structure: \\
+    \textbf{len(l)}: return the length of the list \\
+    \textbf{min(l)}: return smallest item of s \\
+    \textbf{max(l)}: return largest item of s \\
+    \textbf{l.append(i)}: add i to the end of the list (a[len(a):] = [x]) \\
+    \textbf{l.extend(it)}: appending all the items (a[len(a):] = it) \\
+    \textbf{l.insert(i, x)}: insert at i, x all the value shift \\
+    \textbf{l.remove(x)}: remove first item that equal x. error if don't exist\\
+    \textbf{l.pop([i])}: remove index i, if blank the last. return the value \\
+    \textbf{l.clear()}: remove all the elements (del a[:])\\
+    \textbf{l.index(x)}: return index of x. error if don't exist \\
+    \textbf{l.count(x)}: return the ammount of x \\
+    \textbf{l.sort()}: sort the list \\
+    \textbf{l.reverse()}: flip the list ([::-1]) \\
+    \textbf{l.copy()}: return a copy of the list ([:])
+    \subsection{Dictionaries}
+    
+\section{Flow Tools}
+
+
+    \subsection{if Statements}
+    Use: \\
+    if (condition): \\
+    elif (condition): \\
+    else: 
+
+    \subsection{Classes Special Attributes}
+    \textbf{\_\_dict\_\_}: A dictionary or other mapping \\
+    \textbf{\_\_class\_\_}: The class to which a class instance belongs \\
+    \textbf{\_\_bases\_\_}: The tuple of base classes of a class object.\\
+    \textbf{\_\_name\_\_}: The name of the class, function, method, descriptor, or generator instance.\\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+    \textbf{\_\_\_\_}: \\
+
+\section{Libraries}
+    \subsection{Basics}
+    \subsection{Os}
+    \subsection{Math}
+    \subsection{Random}
+    \subsection{Statistics}
+    \subsection{Matplotlib}
+    \subsection{Numpy}
+    \subsection{Pandas}
+    \subsection{Datetime}
+    \subsection{Timeit}
+    \subsection{Pygame}
+    \subsection{Threading}
+    \subsection{Requests}
+    \subsection{Flask}
+    
+
+\end{document}
