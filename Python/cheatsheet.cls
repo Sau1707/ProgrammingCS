@@ -212,6 +212,49 @@
     \end{center}%
 }
 
+%% Create a def, first highilight second definition
+\newcommand{\makeDef}[2]{%
+    \textbf{#1:} #2
+
+    }
+
+%% Create code box
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,  
+    xleftmargin=2.5em,
+    xrightmargin=1em,
+    frame=single,
+    framexleftmargin=1.5em,                  
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\newcommand{\pyBox}[1]{%
+\begin{lstlisting}[language=python, belowskip=0.2 \baselineskip, aboveskip= 0.1 \baselineskip]^^J
+#1^^J
+\end{lstlisting}
+}
+
+
 \renewcommand{\normalsize}{\fontsize{8}{9}\selectfont} % changes normalsize to small % dirty
 \renewcommand{\familydefault}{\sfdefault}
 

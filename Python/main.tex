@@ -1,9 +1,8 @@
 \documentclass{cheatsheet}
 \usepackage{blindtext}
-
-
 \usepackage{listings}
 \usepackage{bm}
+\usepackage[T1]{fontenc}
 
 \doctitle{Python}
 \author{Leonardo Saurwein - lsaurwein@student.ethz.ch}
@@ -13,64 +12,86 @@
 \begin{document}
 \section{General}
     \subsection{Operators}
-    \textbf{x+y} b: sum of x and y \hspace{1cm} a \textbf{-} b: minus \hspace{1cm} a \textbf{*} b: times \\
-    a \textbf{**} n: a to the power of 7 \\
-    a \textbf{/} b: division, return a float \\
-    a \textbf{//} b: floor division discards the fractional part \\
-    a \textbf{\%} b: the operator \% returns the remainder of the division \\
-    \textbf{\_} :console, the last printed expression is assigned to the variable \_ \\
-    \textbf{abs(x)}: absolute value or magnitude of x \\
-    \textbf{int(x)}: x converted to integer \\
-    \textbf{float(x)}: x converted to floating point \\
-    \textbf{complex(re, im)}: complex number, re: real, im: imaginary \\
-    \textbf{c.conjugate()}: conjugate of the complex number c
-    bm
-    \subsection{Bitwise Operations}
-    TODO
+    Define a number variable:
+    \pyBox{
+        i = 0 # Create an integer^^J
+        f = 0.00 # Create a float
+    }
+    \makeDef{x + y}{sum of x and y}
+    \makeDef{x - y}{subtraction of x and y}
+    \makeDef{x * y}{x times y}
+    \makeDef{a ** n}{a to the power of n}
+    \makeDef{a / b}{division, return a float}
+    \makeDef{a // b}{floor division, discard the fractional part}
+    \makeDef{a \% b}{the operator \% returns the remainder of the division}
+    \makeDef{\_}{console, last printed expression is assigned to the variable \_}
+    \makeDef{abs(x)}{absolute value or magnitude of x}
+    \makeDef{int(x)}{x converted to integer}
+    \makeDef{float(x)}{x converted to floating point}
+    \makeDef{complex(re, im)}{complex number, re: real, im: imaginary}
+    \makeDef{c.conjugate()}{conjugate of the complex number c}
 
-    \subsection{Boolean operators}
-    \textbf{x or y}: if x is false, then y, else x \\
-    \textbf{x and y}: if x is false, then x, else y \\
-    \textbf{not x}: if x is false, then True, else False \\
-    \subsection{Comparisons}
-    \boldsymbol{$<$}: strictly less than \\
-    \textbf{$<=$}: less than or equal \\
-    \textbf{$>$}: strictly greater than \\
-    \textbf{$>=$}: greater than or equal \\
-    \textbf{$==$}: equal \\
-    \textbf{$!=$}: not equal \\
-    \textbf{is}: object identity \\
-    \textbf{is not}: negated object identity
+    %% Todo 
+    %\subsection{Bitwise Operations}
+
+    \subsection{Operators}
+    \textbf{Comparison:} \\
+    \makeDef{<}{strictly less than}
+    \makeDef{<=}{less than or equal}
+    \makeDef{>}{strictly greater than}
+    \makeDef{>=}{greater than or equal}
+    \makeDef{==}{equal}
+    \makeDef{!=}{not equal}
+    \makeDef{is}{object identity}
+    \makeDef{is not}{negated object identity}
+    \vspace{0.1cm}
+    \textbf{Logical:} \\
+    \makeDef{and}{true if both true}
+    \makeDef{or}{true if only one true}
+    \makeDef{not}{reverse the result}
+    \vspace{0.1cm}
+    \textbf{Identity:} \\
+    \makeDef{is}{true if both variable are the same object}
+    \makeDef{is not}{true if both variable are not the same object}
+    \vspace{0.1cm}
+    \textbf{Membership:} \\
+    \makeDef{in}{true if the value is in the object}
+    \makeDef{not in}{true if value not in object}
+
 
     \subsection{Strings}
-    \textbf{s = 'a' or "a"}: single quotes strings \\
-    \textbf{'doesn$\backslash$'t'}: use $\backslash$' to escape the single quote \\
-    \textbf{"doesn't"}: or use double quotes instead \\
+    Define a string variable:
+    \pyBox{
+        s = "" or '' # Create an empty string
+    }
+    \makeDef{"doesn't"}{mix to use single quote}
     \textbf{$\backslash$n}: go to the next line \hspace{0.3cm} \textbf{$\backslash$t}: tab space \hspace{0.3cm} \textbf{$\backslash$r}: carriage return \\
-    \textbf{r"..."}: raw strings \\
-    \textbf{"""..."""}: string literals on multiple lines, use $\backslash$ to prevent $\backslash$n \\
-    \textbf{+} and \textbf{*}: sum or multiply strings \\
-    \textbf{a[n]}: to access n index of a (start from 0) \\
-    \textbf{a[-k]}: to access n-k index of a (start from n+1) \\
-    \textbf{a[i:j]}: range from i to j, leave black to get first or last \\
-    \textbf{strings are immutable (don't support index assignment)} \\
-    Methods (all return a copy): \\
-    \textbf{len(a)}: return the length of the string \\
-    \textbf{s.capitalize()}: first character capitalized and the rest lowercased \\
-    \textbf{s.casefold()}: casefolded copy of the string.
-    \textbf{s.center(w, c)}: centered in a string of length w, fill with c \\
-    \textbf{s.count(i)}: count ammount of substring i in str \\
-    \textbf{s.encode()}: encode the string, default: utf-8 \\
-    \textbf{s.endswith(s)}: true if s end with s, false otherwise \\
-    \textbf{s.startswith(s)}: true if s start with s, false otherwis \\
-    \textbf{s.expandtabs(n)}: expand the tab ($\backslash$t) \\
-    \textbf{s.find(i)}: return smallest index of i in s, -1 if not found \\
-    \textbf{s.index(i)}: like find but raise an error \\
-    \textbf{s.isalnum()}: true if alphanumeric \\
-    \textbf{s.isalpha()}: true if all alphabetic \\
-    \textbf{s.isascii()}: true if ascii \\
-    \textbf{s.isdecimal()}: true if all decimal \\
-    \textbf{s.isdigit()}: true if all digit \\
+    \makeDef{r"..."}{raw strings}
+    \makeDef{"""..."""}{string literals on multiple lines, use $\backslash$ to prevent $\backslash$n}
+    \makeDef{+, *}{sum or multiply strings}
+    \vspace{0.2cm}
+    \textbf{Strings are immutable (don't support index assignment)} \\
+    \makeDef{a[n]}{to access n index of a (start from 0)}
+    \makeDef{a[-k]}{to access n-k index of a (start from n+1)}
+    \makeDef{a[i:j]}{range from i to j, leave black to get first or last}
+    \vspace{0.2cm}
+    \textbf{Methods (all return a copy of the string):}\\
+    \makeDef{len(a)}{return the length of the string}
+    \makeDef{s.capitalize()}{first character capitalized and the rest lowercased}
+    \makeDef{s.casefold()}{casefolded copy of the string.}
+    \makeDef{s.center(w, c)}{centered in a string of length w, fill with c}
+    \makeDef{s.count(i)}{count ammount of substring i in str}
+    \makeDef{s.encode()}{encode the string, default: utf-8}
+    \makeDef{s.endswith(s)}{true if s end with s, false otherwise}
+    \makeDef{s.startswith(s)}{true if s start with s, false otherwis}
+    \makeDef{s.expandtabs(n)}{expand the tab ($\backslash$t)}
+    \makeDef{s.find(i)}{return smallest index of i in s, -1 if not found}
+    \makeDef{s.index(i)}{like find but raise an error}
+    \makeDef{s.isalnum()}{true if alphanumeric}
+    \makeDef{s.isalpha()}{true if all alphabetic}
+    \makeDef{s.isascii()}{true if ascii}
+    \makeDef{s.isdecimal()}{true if all decimal}
+    \makeDef{s.isdigit()}{true if all digit}
     \textbf{s.islower()}: true if all lowercase \\
     \textbf{s.lower()}: all cased characters converted to lowercase \\
     \textbf{s.isupper()}: true if all uppercase \\
@@ -90,15 +111,24 @@
     \textbf{s.swapcase()}: convert upper to lower and viceversa
 
     \subsection{Tuples and Sets}
-    TODO
+    Define a set and tuple
+    \pyBox{
+        t = () # Create an empty tuple^^J
+        s = set() # Create an empty set
+    }
 
     \subsection{Lists}
-    \textbf{l = [a,b,c]}: list, support index like strings \\
-    \textbf{l[:]}: return a copy of l \\
-    \textbf{l[n] = k}: set n index to k, work also with a slice (l[i:j]) \\
-    \textbf{[i for i in a]}: concise way to create lists \\
-    \textbf{del l[n]}: delete n index, work also with interval \\
-    Data structure: \\
+    Define a list
+    \pyBox{
+        l = [] # Create an empty list
+    }
+    \textbf{Lists are mutable (support index assignment)} \\
+    \makeDef{l[:]}{return a copy of l}
+    \makeDef{l[n] = k}{set n index to k, work also with a slice (l[i:j])}
+    \makeDef{[i for i in a]}{concise way to create lists}
+    \makeDef{del l[n]}{delete n index, work also with interval}
+    \vspace{0.2cm} 
+    \textbf{Data structure:} \\
     \textbf{len(l)}: return the length of the list \\
     \textbf{min(l)}: return smallest item of s \\
     \textbf{max(l)}: return largest item of s \\
@@ -113,16 +143,33 @@
     \textbf{l.sort()}: sort the list \\
     \textbf{l.reverse()}: flip the list ([::-1]) \\
     \textbf{l.copy()}: return a copy of the list ([:])
+
     \subsection{Dictionaries}
-    
+    Definition of a empty dictionary
+    \pyBox{
+        d = \{\}
+    }
+    \makeDef{list(d)}{return a list of keys}
+    \makeDef{sorted(d)}{return all the keys sorted}
 \section{Flow Tools}
-
-
     \subsection{if Statements}
-    Use: \\
-    if (condition): \\
-    elif (condition): \\
-    else: 
+    
+    \subsection{loop}
+    \textbf{Statement} \\
+    \makeDef{continue}{skip the rest of the code but continue the loop}
+    \makeDef{break}{stop the loop}
+    \vspace{0.1cm}
+    While loop:
+    \pyBox{
+        while (statement):^^J
+        else: #when loop finish without a break
+    }
+    \vspace{0.1cm}
+    For loop:
+    \pyBox{
+        for (iterator): ^^J
+        else: #when loop finish without a break
+    }
 
     \subsection{Classes Special Attributes}
     \textbf{\_\_dict\_\_}: A dictionary or other mapping \\
@@ -140,7 +187,28 @@
     \textbf{\_\_\_\_}: \\
 
 \section{Libraries}
-    \subsection{Basics}
+    \subsection{Json}
+        Import json package:
+        \pyBox{
+            import json
+        }
+        \makeDef{loads(s)}{convert json string in dictionary}
+        \makeDef{dumps(d)}{convert dict in json string}
+        Use: \textbf{ident=4, sort\_keys=True} to prettify
+    \subsection{random}
+        Import random module:
+        \pyBox{
+            import random
+        }
+        \makeDef{seed(value)}{Inizialize the random number genetator}
+        \makeDef{randrange(start, stop, step)}{return a float in the range}
+        \makeDef{ranint(start, stop+1)}{return an integer in the range}
+        \makeDef{choice(seq)}{return a random element of the sequence}
+        \makeDef{choices(seg, weights, k)}{return k element of the sequence}
+        \makeDef{shuffle(seq)}{shuffle the sequence}
+        \makeDef{random()}{return a random float between 0 and 1}
+        \makeDef{uniform(a, b)}{return a float in the range}
+        \makeDef{triangular(a, b, center)}{return a float in range with center}
     \subsection{Os}
     \subsection{Math}
     \subsection{Random}
@@ -153,6 +221,16 @@
     \subsection{Pygame}
     \subsection{Threading}
     \subsection{Requests}
+        Import request module:
+        \pyBox{
+            import requests
+        }
+        \makeDef{get(url, params, args)}{GET request to url}
+        \makeDef{post(url, data, json, args)}{POST request to url}
+        \makeDef{put(url, data, args)}{PUT request to url}
+        \makeDef{delete(url, args)}{DELETE request to url}
+        \makeDef{head(url, args)}{HEAD request to url}
+        \makeDef{patch(url, data, args)}{PATCH request to url}
     \subsection{Flask}
     
 
