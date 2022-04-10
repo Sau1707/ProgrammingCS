@@ -1,0 +1,3 @@
+New commands
+
+\setColor{#color}
